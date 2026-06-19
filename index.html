@@ -153,19 +153,66 @@
 
     // 5. Renderizado de Llaves Eliminatorias
     const bracketData = [
-        {round:'Diesiceisavos De Final',matches:['1A vs 2B','1B vs 2A','1C vs 2D','1D vs 2C','1E vs 2F','1F vs 2E','1G vs 2H','1H vs 2G','1I vs 2J','1J vs 2I','1K vs 2L','1L vs 2K','3°A/B/C vs 3°D/E/F','3°G/H/I vs 3°J/K/L','3°A/B vs 3°C/D','3°E/F vs 3°K/L']},
-        {round:'Octavos de Final',matches:['1A vs 2B','1B vs 2A','1C vs 2D','1D vs 2C','1E vs 2F','1F vs 2E','1G vs 2H','1H vs 2G','1I vs 2J','1J vs 2I','1K vs 2L','1L vs 2K','3°A/B/C vs 3°D/E/F','3°G/H/I vs 3°J/K/L','3°A/B vs 3°C/D','3°E/F vs 3°K/L']},
-        {round:'Cuartos de Final',matches:['G.Oct 1 vs G.Oct 2','G.Oct 3 vs G.Oct 4','G.Oct 5 vs G.Oct 6','G.Oct 7 vs G.Oct 8','G.Oct 9 vs G.Oct 10','G.Oct 11 vs G.Oct 12','G.Oct 13 vs G.Oct 14','G.Oct 15 vs G.Oct 16']},
-        {round:'Semifinales',matches:['G.Cuartos 1 vs G.Cuartos 2','G.Cuartos 3 vs G.Cuartos 4','G.Cuartos 5 vs G.Cuartos 6','G.Cuartos 7 vs G.Cuartos 8']},
-        {round:'Final',matches:['G.Semi 1 vs G.Semi 2']}
+        {
+            round: 'Dieciseisavos De Final',
+            matches: [
+                // Ejemplo de un partido que ya se jugó
+                { home: '1A', away: '2B', score1: '2', score2: '1' },
+                // Ejemplos de partidos por jugarse (tienen un guion "-")
+                { home: '1B', away: '2A', score1: '-', score2: '-' },
+                { home: '1C', away: '2D', score1: '-', score2: '-' },
+                { home: '1D', away: '2C', score1: '-', score2: '-' },
+                { home: '1E', away: '2F', score1: '-', score2: '-' },
+                { home: '1F', away: '2E', score1: '-', score2: '-' },
+                { home: '1G', away: '2H', score1: '-', score2: '-' },
+                { home: '1H', away: '2G', score1: '-', score2: '-' },
+                // ... puedes agregar el resto de los 16avos aquí siguiendo el mismo formato
+            ]
+        },
+        {
+            round: 'Octavos de Final',
+            matches: [
+                { home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-' },
+                // ...
+            ]
+        },
+        {
+            round: 'Cuartos de Final',
+            matches: [
+                { home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-' },
+                { home: 'G.Oct 3', away: 'G.Oct 4', score1: '-', score2: '-' }
+            ]
+        },
+        {
+            round: 'Semifinales',
+            matches: [
+                { home: 'G.Cuartos 1', away: 'G.Cuartos 2', score1: '-', score2: '-' },
+                { home: 'G.Cuartos 3', away: 'G.Cuartos 4', score1: '-', score2: '-' }
+            ]
+        },
+        {
+            round: 'Final',
+            matches: [
+                { home: 'G.Semi 1', away: 'G.Semi 2', score1: '-', score2: '-' }
+            ]
+        }
     ];
 
     const bracket = document.getElementById('bracket');
     const bHtml = bracketData.map(r => `
-        <div class="mb-6">
-            <h3 class="font-bold text-center mb-3" style="color:#d4a017">${r.round}</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                ${r.matches.map(m => `<div class="group-card rounded-lg p-2 text-sm text-center">${m}</div>`).join('')}
+        <div class="mb-8">
+            <h3 class="font-bold text-center mb-4 text-lg uppercase tracking-wider" style="color:#d4a017">${r.round}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                ${r.matches.map(m => `
+                    <div class="match-row flex items-center justify-between p-3 rounded-lg group-card text-sm">
+                        <span class="flex-1 text-right pr-2">${m.home}</span>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score1}</span>
+                        <span class="font-bold px-2 text-white/50">vs</span>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score2}</span>
+                        <span class="flex-1 pl-2">${m.away}</span>
+                    </div>
+                `).join('')}
             </div>
         </div>
     `).join('');

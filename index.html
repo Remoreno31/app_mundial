@@ -68,20 +68,11 @@
         L: ['Inglaterra','Ghana','Panama','Croacia']
     };
 
-    const grid = document.getElementById('groups-grid');
-    Object.entries(groups).forEach(([letter, teams]) => {
-        const card = document.createElement('div');
-        card.className = 'group-card rounded-xl p-3';
-        card.innerHTML = `<h3 class="font-bold text-center mb-2" style="color:#d4a017">Grupo ${letter}</h3>` +
-            teams.map((t,i) => `<div class="flex items-center gap-2 py-1 text-sm border-b border-white/5 last:border-0"><span class="w-5 text-center opacity-50">${i+1}</span><span>${t}</span></div>`).join('');
-        grid.appendChild(card);
-    });
-
-    // Sample matches
+    // 1. Ubicamos los partidos antes de los grupos para poder calcular los puntos
     const matches = [
         {date:'11 Jun',group:'A',home:'Mexico',away:'Sudafrica', score1: '2', score2:'0'},
         {date:'11 Jun',group:'A',home:'Corea Del Sur',away:'Chequia', score1: '2', score2:'1'},
-        {date:'12 Jun',group:'B',home:'Canada',away:'Boznia y Herzegovina', score1: '1', score2:'1'},
+        {date:'12 Jun',group:'B',home:'Canada',away:'Bosnia y Herzegovina', score1: '1', score2:'1'},
         {date:'12 Jun',group:'D',home:'Estados Unidos',away:'Paraguay', score1: '4', score2:'1'},
         {date:'13 Jun',group:'B',home:'Catar',away:'Suiza', score1: '1', score2:'1'},
         {date:'13 Jun',group:'C',home:'Brasil',away:'Marruecos', score1: '1', score2:'1'},
@@ -91,8 +82,54 @@
         {date:'14 Jun',group:'F',home:'Paises Bajos',away:'Japon', score1: '2', score2:'2'},
         {date:'14 Jun',group:'E',home:'Costa De Marfil',away:'Ecuador', score1: '1', score2:'0'},
         {date:'14 Jun',group:'F',home:'Suecia',away:'Tunez', score1: '5', score2:'1'},
+        {date:'15 Jun',group:'H',home:'España',away:'Cabo Verde', score1: '0', score2:'0'},
+        {date:'15 Jun',group:'G',home:'Belgica',away:'Egipto', score1: '1', score2:'1'},
+        {date:'15 Jun',group:'H',home:'Arabia Saudita',away:'Uruguay', score1: '1', score2:'1'},
+        {date:'15 Jun',group:'G',home:'Suecia',away:'Tunez', score1: '5', score2:'1'},
     ];
 
+    // 2. Función automática para calcular puntos (3 por ganar, 1 por empatar)
+    function getPoints(teamName) {
+        let pts = 0;
+        matches.forEach(m => {
+            if(m.home === teamName || m.away === teamName) {
+                const s1 = parseInt(m.score1);
+                const s2 = parseInt(m.score2);
+                if(!isNaN(s1) && !isNaN(s2)) { // Solo cuenta si hay marcadores
+                    if(m.home === teamName) {
+                        if(s1 > s2) pts += 3;
+                        else if(s1 === s2) pts += 1;
+                    } else {
+                        if(s2 > s1) pts += 3;
+                        else if(s1 === s2) pts += 1;
+                    }
+                }
+            }
+        });
+        return pts;
+    }
+
+    // 3. Renderizado de la tabla de Grupos con los puntos alineados a la derecha
+    const grid = document.getElementById('groups-grid');
+    Object.entries(groups).forEach(([letter, teams]) => {
+        const card = document.createElement('div');
+        card.className = 'group-card rounded-xl p-3';
+
+        let teamsHtml = teams.map((t,i) => `
+            <div class="flex items-center justify-between py-1 text-sm border-b border-white/5 last:border-0">
+                <div class="flex items-center gap-2">
+                    <span class="w-5 text-center opacity-50">${i+1}</span>
+                    <span>${t}</span>
+                </div>
+                <span class="font-bold text-xs" style="color:#d4a017">${getPoints(t)} pts</span>
+            </div>
+        `).join('');
+
+        card.innerHTML = `<h3 class="font-bold text-center mb-2" style="color:#d4a017">Grupo ${letter}</h3>` + teamsHtml;
+        grid.appendChild(card);
+    });
+
+    // 4. Renderizado de Partidos
     const matchesList = document.getElementById('matches-list');
     let lastDate = '';
     matches.forEach(m => {
@@ -114,7 +151,7 @@
         matchesList.appendChild(row);
     });
 
-    // Bracket
+    // 5. Renderizado de Llaves Eliminatorias
     const bracketData = [
         {round:'Diesiceisavos De Final',matches:['1A vs 2B','1B vs 2A','1C vs 2D','1D vs 2C','1E vs 2F','1F vs 2E','1G vs 2H','1H vs 2G','1I vs 2J','1J vs 2I','1K vs 2L','1L vs 2K','3°A/B/C vs 3°D/E/F','3°G/H/I vs 3°J/K/L','3°A/B vs 3°C/D','3°E/F vs 3°K/L']},
         {round:'Octavos de Final',matches:['1A vs 2B','1B vs 2A','1C vs 2D','1D vs 2C','1E vs 2F','1F vs 2E','1G vs 2H','1H vs 2G','1I vs 2J','1J vs 2I','1K vs 2L','1L vs 2K','3°A/B/C vs 3°D/E/F','3°G/H/I vs 3°J/K/L','3°A/B vs 3°C/D','3°E/F vs 3°K/L']},
@@ -133,6 +170,5 @@
         </div>
     `).join('');
     bracket.innerHTML = bHtml;
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e44ed9d15c4736',t:'MTc4MTg5MDcxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  </script> <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e44ed9d15c4736',t:'MTc4MTg5MDcxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body></html>

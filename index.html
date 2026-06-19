@@ -40,7 +40,7 @@
    </section>
   </main>
   <footer class="text-center p-4 opacity-50 text-xs">
-   <p data-template-id="footer-text" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 14px;">Talleres Remaca — Mundial FIFA 2026</p>
+   <p data-template-id="footer-text" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 14px;"> 2026 Talleres Remaca. All Rights Reserved. — Mundial FIFA 2026</p>
   </footer>
   <script src="/_sdk/editing_sdk.js"></script>
   <script>
@@ -85,7 +85,19 @@
         {date:'15 Jun',group:'H',home:'España',away:'Cabo Verde', score1: '0', score2:'0'},
         {date:'15 Jun',group:'G',home:'Belgica',away:'Egipto', score1: '1', score2:'1'},
         {date:'15 Jun',group:'H',home:'Arabia Saudita',away:'Uruguay', score1: '1', score2:'1'},
-        {date:'15 Jun',group:'G',home:'Suecia',away:'Tunez', score1: '5', score2:'1'},
+        {date:'15 Jun',group:'G',home:'Iran',away:'Nueva Zelanda', score1: '2', score2:'2'},
+        {date:'16 Jun',group:'I',home:'Francia',away:'Senegal', score1: '3', score2:'1'},
+        {date:'16 Jun',group:'I',home:'Irak',away:'Noruega', score1: '1', score2:'4'},
+        {date:'16 Jun',group:'J',home:'Argentina',away:'Argelia', score1: '3', score2:'0'},
+        {date:'17 Jun',group:'J',home:'Austria',away:'Jordania', score1: '3', score2:'1'},
+        {date:'17 Jun',group:'K',home:'Portugal',away:'RD Congo', score1: '1', score2:'1'},
+        {date:'17 Jun',group:'L',home:'Inglaterra',away:'Croacia', score1: '4', score2:'2'},
+        {date:'17 Jun',group:'L',home:'Ghana',away:'Panama', score1: '1', score2:'0'},
+        {date:'17 Jun',group:'K',home:'Uzbekistan',away:'Colombia', score1: '1', score2:'3'},
+        {date:'18 Jun',group:'A',home:'Chequia',away:'Sudafrica', score1: '1', score2:'1'},
+        {date:'18 Jun',group:'B',home:'Suiza',away:'Bosnia y Herzegovina', score1: '4', score2:'1'},
+        {date:'18 Jun',group:'B',home:'Canada',away:'Catar', score1: '6 ', score2:'0'},
+        {date:'18 Jun',group:'A',home:'Mexico',away:'Corea Del Sur', score1: '1', score2:'0'},
     ];
 
     // 2. Función automática para calcular puntos (3 por ganar, 1 por empatar)
@@ -157,21 +169,35 @@
             round: 'Dieciseisavos De Final',
             matches: [
                 // Ejemplo de un partido que ya se jugó
-                { home: '1A', away: '2B', score1: '2', score2: '1' },
+                { home: '2A', away: '2B', score1: '-', score2: '-' },
                 // Ejemplos de partidos por jugarse (tienen un guion "-")
-                { home: '1B', away: '2A', score1: '-', score2: '-' },
-                { home: '1C', away: '2D', score1: '-', score2: '-' },
-                { home: '1D', away: '2C', score1: '-', score2: '-' },
-                { home: '1E', away: '2F', score1: '-', score2: '-' },
-                { home: '1F', away: '2E', score1: '-', score2: '-' },
-                { home: '1G', away: '2H', score1: '-', score2: '-' },
-                { home: '1H', away: '2G', score1: '-', score2: '-' },
+                { home: '1E', away: '3 A-B-C-D-F', score1: '-', score2: '-' },
+                { home: '1F', away: '2C', score1: '-', score2: '-' },
+                { home: '1C', away: '2F', score1: '-', score2: '-' },
+                { home: '1i', away: '3 C-D-F-G-H', score1: '-', score2: '-' },
+                { home: '2E', away: '2i', score1: '-', score2: '-' },
+                { home: '1A', away: '3 C-E-F-H-i', score1: '-', score2: '-' },
+                { home: '1L', away: '3 E-H-i-J-K', score1: '-', score2: '-' },
+                { home: '1D', away: '3 B-E-F-i-J', score1: '-', score2: '-' },
+                { home: '1G', away: '3 A-E-H-i-J', score1: '-', score2: '-' },
+                { home: '2K', away: '2L', score1: '-', score2: '-' },
+                { home: '1H', away: '2J', score1: '-', score2: '-' },
+                { home: '1B', away: '3 E-F-G-i-J', score1: '-', score2: '-' },
+                { home: '1J', away: '2H', score1: '-', score2: '-' },
+                { home: '1K', away: '3 D-E-i-J-L', score1: '-', score2: '-' },
+                { home: '2D', away: '2G', score1: '-', score2: '-' },
                 // ... puedes agregar el resto de los 16avos aquí siguiendo el mismo formato
             ]
         },
         {
             round: 'Octavos de Final',
             matches: [
+                { home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-' },
+                { home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-' },
                 { home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-' },
                 { home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-' },
                 // ...
@@ -181,7 +207,9 @@
             round: 'Cuartos de Final',
             matches: [
                 { home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-' },
-                { home: 'G.Oct 3', away: 'G.Oct 4', score1: '-', score2: '-' }
+                { home: 'G.Oct 3', away: 'G.Oct 4', score1: '-', score2: '-' },
+                { home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-' },
+                { home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-' },
             ]
         },
         {
@@ -189,6 +217,12 @@
             matches: [
                 { home: 'G.Cuartos 1', away: 'G.Cuartos 2', score1: '-', score2: '-' },
                 { home: 'G.Cuartos 3', away: 'G.Cuartos 4', score1: '-', score2: '-' }
+            ]
+        },
+        {
+            round: '3er y 4to PUESTO',
+            matches: [
+                { home: 'G.Cuartos 1', away: 'G.Cuartos 2', score1: '-', score2: '-' },
             ]
         },
         {

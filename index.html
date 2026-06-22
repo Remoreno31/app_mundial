@@ -17,11 +17,12 @@
   <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
  </head>
  <body data-template-id="__page-root" class="min-h-screen text-white" style="background: rgb(10, 10, 10);">
-  <header class="flex items-center justify-center gap-4 p-4 border-b border-white/10"><img data-template-id="remaca-logo" class="canva-image h-14 object-contain" loading="lazy" src="logo.png" alt="Logo Talleres Remaca" />
-   <div>
-    <h1 data-template-id="main-title" class="canva-text font-black text-xl md:text-2xl uppercase tracking-wide" style="color: rgb(212, 160, 23); font-weight: 900; font-style: normal; font-size: 28px;">Mundial 2026</h1>
-    <p data-template-id="subtitle" class="canva-text text-sm opacity-70" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 14px;">USA • México • Canadá</p>
+  <header class="flex items-center justify-center gap-5 p-5 border-b border-white/40"><img data-template-id="remaca-logo" class="canva-image h-14 object-contain" loading="lazy" src="logo.png" alt="Logo Talleres Remaca" />
+    <div>
+      <h1 data-template-id="main-title" class="canva-text font-black text-xl md:text-2xl uppercase tracking-wide" style="color: rgb(212, 160, 23); font-weight: 900; font-style: normal; font-size: 28px;">Mundial 2026</h1>
+      <p data-template-id="subtitle" class="canva-text text-sm" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 14px;">USA • México • Canadá</p>
    </div>
+   <img data-template-id="logo-mundial" class="canva-image h-14 object-contain" loading="lazy" src="mundial.jpg" alt="Logo Mundial 2026" />
   </header>
   <nav class="flex justify-center gap-2 p-4 flex-wrap"><button onclick="showTab('grupos')" id="tab-grupos" class="tab-active px-4 py-2 rounded-full text-sm font-bold transition-all">Grupos</button> <button onclick="showTab('partidos')" id="tab-partidos" class="px-4 py-2 rounded-full text-sm font-bold bg-white/10 transition-all">Fase de Grupos</button> <button onclick="showTab('eliminatorias')" id="tab-eliminatorias" class="px-4 py-2 rounded-full text-sm font-bold bg-white/10 transition-all">Eliminatorias</button>
   </nav>
@@ -98,6 +99,50 @@
         {date:'18 Jun',group:'B',home:'Suiza',away:'Bosnia y Herzegovina', score1: '4', score2:'1'},
         {date:'18 Jun',group:'B',home:'Canada',away:'Catar', score1: '6 ', score2:'0'},
         {date:'18 Jun',group:'A',home:'Mexico',away:'Corea Del Sur', score1: '1', score2:'0'},
+        {date:'19 Jun',group:'D',home:'Estados Unidos',away:'Australia', score1: '2', score2:'0'},
+        {date:'19 Jun',group:'C',home:'Escocia',away:'Marruecos', score1: '0', score2:'1'},
+        {date:'19 Jun',group:'C',home:'Brasil',away:'Haiti', score1: '3', score2:'0'},
+        {date:'19 Jun',group:'D',home:'Turquía',away:'Paraguay', score1: '0', score2:'1'},
+        {date:'20 Jun',group:'F',home:'Paises Bajos',away:'Suecia', score1: '5', score2:'1'},
+        {date:'20 Jun',group:'E',home:'Alemania',away:'Costa De Marfil', score1: '2', score2:'1'},
+        {date:'20 Jun',group:'E',home:'Ecuador',away:'Curazao', score1: '0', score2:'0'},
+        {date:'21 Jun',group:'F',home:'Tunez',away:'Japon', score1: '0', score2:'4'},
+        {date:'21 Jun',group:'H',home:'España',away:'Arabia Saudita', score1: '4', score2:'0'},
+        {date:'21 Jun',group:'G',home:'Belgica',away:'Iran', score1: '0', score2:'0'},
+        {date:'21 Jun',group:'H',home:'Uruguay',away:'Cabo Verde', score1: '2', score2:'2'},
+        {date:'21 Jun',group:'G',home:'Nueva Zelanda',away:'Egipto', score1: '1', score2:'3'},
+        {date:'22 Jun',group:'J',home:'Argentina',away:'Austria', score1: '-', score2:'-'},
+        {date:'22 Jun',group:'I',home:'Francia',away:'Irak', score1: '-', score2:'-'},
+        {date:'22 Jun',group:'I',home:'Noruega',away:'Senegal', score1: '-', score2:'-'},
+        {date:'22 Jun',group:'J',home:'Jordania',away:'Argelia', score1: '-', score2:'-'},
+        {date:'23 Jun',group:'K',home:'Portugal',away:'Uzbekistan', score1: '-', score2:'-'},
+        {date:'23 Jun',group:'L',home:'Inglaterra',away:'Ghana', score1: '-', score2:'-'},
+        {date:'23 Jun',group:'L',home:'Panama',away:'Croacia', score1: '-', score2:'-'},
+        {date:'23 Jun',group:'K',home:'Colombia',away:'RD Congo', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'B',home:'Suiza',away:'Canada', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'B',home:'Bosnia Y Herzegovina',away:'Catar', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'C',home:'Marruecos',away:'Haiti', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'C',home:'Escocia',away:'Brasil', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'A',home:'Sudafrica',away:'Corea Del Sur', score1: '-', score2:'-'},
+        {date:'24 Jun',group:'A',home:'Chequia',away:'Mexico', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'E',home:'Curazao',away:'Costa De Marfil', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'E',home:'Ecuador',away:'Alemania', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'F',home:'Tunez',away:'Paises Bajos', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'F',home:'Japon',away:'Suecia', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'D',home:'Turquia',away:'Estados Unidos', score1: '-', score2:'-'},
+        {date:'25 Jun',group:'D',home:'Paraguay',away:'Australia', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'I',home:'Noruega',away:'Francia', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'I',home:'Senegal',away:'Irak', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'H',home:'Cabo Verde',away:'Arabia Saudita', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'H',home:'Uruguay',away:'España', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'G',home:'Nueva Zelanda',away:'Belgica', score1: '-', score2:'-'},
+        {date:'26 Jun',group:'G',home:'Egipto',away:'Iran', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'L',home:'Panama',away:'Inglaterra', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'K',home:'Colombia',away:'Portugal', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'J',home:'Argelia',away:'Austria', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'L',home:'Croacia',away:'Ghana', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'K',home:'RD Congo',away:'Uzbekistan', score1: '-', score2:'-'},
+        {date:'27 Jun',group:'J',home:'Jordania',away:'Argentina', score1: '-', score2:'-'},
     ];
 
     // 2. Función automática para calcular puntos (3 por ganar, 1 por empatar)
@@ -121,26 +166,37 @@
         return pts;
     }
 
-    // 3. Renderizado de la tabla de Grupos con los puntos alineados a la derecha
-    const grid = document.getElementById('groups-grid');
-    Object.entries(groups).forEach(([letter, teams]) => {
-        const card = document.createElement('div');
-        card.className = 'group-card rounded-xl p-3';
+    // 3. Renderizado de la tabla de Grupos ORDENADA por puntos
+      const grid = document.getElementById('groups-grid');
+      Object.entries(groups).forEach(([letter, teams]) => {
+          const card = document.createElement('div');
+          card.className = 'group-card rounded-xl p-3';
 
-        let teamsHtml = teams.map((t,i) => `
-            <div class="flex items-center justify-between py-1 text-sm border-b border-white/5 last:border-0">
-                <div class="flex items-center gap-2">
-                    <span class="w-5 text-center opacity-50">${i+1}</span>
-                    <span>${t}</span>
-                </div>
-                <span class="font-bold text-xs" style="color:#d4a017">${getPoints(t)} pts</span>
-            </div>
-        `).join('');
+          // Ordenar los equipos de mayor a menor según sus puntos
+          const sortedTeams = [...teams].sort((a, b) => getPoints(b) - getPoints(a));
 
-        card.innerHTML = `<h3 class="font-bold text-center mb-2" style="color:#d4a017">Grupo ${letter}</h3>` + teamsHtml;
-        grid.appendChild(card);
-    });
+          let teamsHtml = sortedTeams.map((t,i) => {
+              // Verificamos si es el último equipo (índice 3)
+              const isLast = (i === 3);
 
+              // Si es el último, le ponemos una franja roja (border-l-4) y un fondo rojizo suave.
+              // Si no lo es, le agregamos un padding izquierdo (pl-3) para que el texto siga alineado con el que tiene borde.
+              const franjaRoja = isLast ? 'border-l-4 border-red-600 bg-red-600/10 pl-2' : 'pl-3';
+
+              return `
+              <div class="flex items-center justify-between py-1 my-0.5 text-sm border-b border-white/5 last:border-0 ${franjaRoja}">
+                  <div class="flex items-center gap-2">
+                      <span class="w-5 text-center opacity-50">${i+1}</span>
+                      <span>${t}</span>
+                  </div>
+                  <span class="font-bold text-xs" style="color:#d4a017">${getPoints(t)} pts</span>
+              </div>
+              `;
+          }).join('');
+
+          card.innerHTML = `<h3 class="font-bold text-center mb-2" style="color:#d4a017">Grupo ${letter}</h3>` + teamsHtml;
+          grid.appendChild(card);
+      });
     // 4. Renderizado de Partidos
     const matchesList = document.getElementById('matches-list');
     let lastDate = '';

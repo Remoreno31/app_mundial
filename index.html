@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7YX0LND8Z"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7YX0LND8Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -37,16 +36,13 @@
   </header>
   <nav class="flex justify-center gap-2 p-4 flex-wrap"><button onclick="showTab('grupos')" id="tab-grupos" class="tab-active px-4 py-2 rounded-full text-sm font-bold transition-all">Grupos</button> <button onclick="showTab('partidos')" id="tab-partidos" class="px-4 py-2 rounded-full text-sm font-bold bg-white/10 transition-all">Fase de Grupos</button> <button onclick="showTab('eliminatorias')" id="tab-eliminatorias" class="px-4 py-2 rounded-full text-sm font-bold bg-white/10 transition-all">Eliminatorias</button>
   </nav>
-  <main class="max-w-7xl mx-auto p-4"><!-- GRUPOS -->
-   <section id="sec-grupos">
+  <main class="max-w-7xl mx-auto p-4"><section id="sec-grupos">
     <h2 data-template-id="grupos-title" class="canva-text font-bold text-lg mb-4 text-center" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 21px;">Fase de Grupos — 12 Grupos</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="groups-grid"></div>
-   </section><!-- PARTIDOS -->
-   <section id="sec-partidos" class="hidden">
+   </section><section id="sec-partidos" class="hidden">
     <h2 data-template-id="partidos-title" class="canva-text font-bold text-lg mb-4 text-center" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 21px;">Partidos — Fase de Grupos</h2>
     <div id="matches-list" class="space-y-2 max-h-[70vh] overflow-y-auto pr-2"></div>
-   </section><!-- ELIMINATORIAS -->
-   <section id="sec-eliminatorias" class="hidden">
+   </section><section id="sec-eliminatorias" class="hidden">
     <h2 data-template-id="eliminatorias-title" class="canva-text font-bold text-lg mb-4 text-center" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 21px;">Llaves — Fase Eliminatoria</h2>
     <div id="bracket" class="overflow-x-auto"></div>
    </section>
@@ -80,7 +76,6 @@
         L: ['Inglaterra','Ghana','Panama','Croacia']
     };
 
-    // 1. Ubicamos los partidos antes de los grupos para poder calcular los puntos
     const matches = [
         {date:'11 Jun',group:'A',home:'Mexico',away:'Sudafrica', score1: '2', score2:'0', time:'03:00 PM'},
         {date:'11 Jun',group:'A',home:'Corea Del Sur',away:'Chequia', score1: '2', score2:'1', time:'10:00 PM'},
@@ -127,43 +122,42 @@
         {date:'22 Jun',group:'I',home:'Noruega',away:'Senegal', score1: '3', score2:'2', time:'08:00 PM'},
         {date:'22 Jun',group:'J',home:'Jordania',away:'Argelia', score1: '1', score2:'2', time:'11:00 PM'},
         {date:'23 Jun',group:'K',home:'Portugal',away:'Uzbekistan', score1: '5', score2:'0', time:'01:00 PM'},
-        {date:'23 Jun',group:'L',home:'Inglaterra',away:'Ghana', score1: '-', score2:'-', time:'04:00 PM'},
-        {date:'23 Jun',group:'L',home:'Panama',away:'Croacia', score1: '-', score2:'-', time:'07:00 PM'},
-        {date:'23 Jun',group:'K',home:'Colombia',away:'RD Congo', score1: '-', score2:'-', time:'10:00 PM'},
-        {date:'24 Jun',group:'B',home:'Suiza',away:'Canada', score1: '-', score2:'-', time:'03:00 PM'},
-        {date:'24 Jun',group:'B',home:'Bosnia Y Herzegovina',away:'Catar', score1: '-', score2:'-', time:'03:00 PM'},
-        {date:'24 Jun',group:'C',home:'Marruecos',away:'Haiti', score1: '-', score2:'-', time:'06:00 PM'},
-        {date:'24 Jun',group:'C',home:'Escocia',away:'Brasil', score1: '-', score2:'-', time:'06:00 PM'},
-        {date:'24 Jun',group:'A',home:'Sudafrica',away:'Corea Del Sur', score1: '-', score2:'-', time:'09:00 PM'},
-        {date:'24 Jun',group:'A',home:'Chequia',away:'Mexico', score1: '-', score2:'-', time:'09:00 PM'},
-        {date:'25 Jun',group:'E',home:'Curazao',away:'Costa De Marfil', score1: '-', score2:'-', time:'04:00 PM'},
-        {date:'25 Jun',group:'E',home:'Ecuador',away:'Alemania', score1: '-', score2:'-', time:'04:00 PM'},
-        {date:'25 Jun',group:'F',home:'Tunez',away:'Paises Bajos', score1: '-', score2:'-', time:'07:00 PM'},
-        {date:'25 Jun',group:'F',home:'Japon',away:'Suecia', score1: '-', score2:'-', time:'07:00 PM'},
-        {date:'25 Jun',group:'D',home:'Turquia',away:'Estados Unidos', score1: '-', score2:'-', time:'10:00 PM'},
-        {date:'25 Jun',group:'D',home:'Paraguay',away:'Australia', score1: '-', score2:'-', time:'10:00 PM'},
-        {date:'26 Jun',group:'I',home:'Noruega',away:'Francia', score1: '-', score2:'-', time:'03:00 PM'},
-        {date:'26 Jun',group:'I',home:'Senegal',away:'Irak', score1: '-', score2:'-', time:'03:00 PM'},
-        {date:'26 Jun',group:'H',home:'Cabo Verde',away:'Arabia Saudita', score1: '-', score2:'-', time:'08:00 PM'},
-        {date:'26 Jun',group:'H',home:'Uruguay',away:'España', score1: '-', score2:'-', time:'08:00 PM'},
-        {date:'26 Jun',group:'G',home:'Nueva Zelanda',away:'Belgica', score1: '-', score2:'-', time:'11:00 PM'},
-        {date:'26 Jun',group:'G',home:'Egipto',away:'Iran', score1: '-', score2:'-', time:'11:00 PM'},
-        {date:'27 Jun',group:'L',home:'Panama',away:'Inglaterra', score1: '-', score2:'-', time:'05:00 PM'},
-        {date:'27 Jun',group:'K',home:'Colombia',away:'Portugal', score1: '-', score2:'-', time:'05:00 PM'},
-        {date:'27 Jun',group:'J',home:'Argelia',away:'Austria', score1: '-', score2:'-', time:'07:30 PM'},
-        {date:'27 Jun',group:'L',home:'Croacia',away:'Ghana', score1: '-', score2:'-', time:'07:30 PM'},
-        {date:'27 Jun',group:'K',home:'RD Congo',away:'Uzbekistan', score1: '-', score2:'-', time:'10:00 PM'},
-        {date:'27 Jun',group:'J',home:'Jordania',away:'Argentina', score1: '-', score2:'-', time:'10:00 PM'},
+        {date:'23 Jun',group:'L',home:'Inglaterra',away:'Ghana', score1: '0', score2:'0', time:'04:00 PM'},
+        {date:'23 Jun',group:'L',home:'Panama',away:'Croacia', score1: '0', score2:'1', time:'07:00 PM'},
+        {date:'23 Jun',group:'K',home:'Colombia',away:'RD Congo', score1: '1', score2:'0', time:'10:00 PM'},
+        {date:'24 Jun',group:'B',home:'Suiza',away:'Canada', score1: '2', score2:'1', time:'03:00 PM'},
+        {date:'24 Jun',group:'B',home:'Bosnia Y Herzegovina',away:'Catar', score1: '3', score2:'1', time:'03:00 PM'},
+        {date:'24 Jun',group:'C',home:'Marruecos',away:'Haiti', score1: '4', score2:'2', time:'06:00 PM'},
+        {date:'24 Jun',group:'C',home:'Escocia',away:'Brasil', score1: '0', score2:'3', time:'06:00 PM'},
+        {date:'24 Jun',group:'A',home:'Sudafrica',away:'Corea Del Sur', score1: '1', score2:'0', time:'09:00 PM'},
+        {date:'24 Jun',group:'A',home:'Chequia',away:'Mexico', score1: '0', score2:'3', time:'09:00 PM'},
+        {date:'25 Jun',group:'E',home:'Curazao',away:'Costa De Marfil', score1: '0', score2:'2', time:'04:00 PM'},
+        {date:'25 Jun',group:'E',home:'Ecuador',away:'Alemania', score1: '2', score2:'1', time:'04:00 PM'},
+        {date:'25 Jun',group:'F',home:'Tunez',away:'Paises Bajos', score1: '1', score2:'3', time:'07:00 PM'},
+        {date:'25 Jun',group:'F',home:'Japon',away:'Suecia', score1: '1', score2:'1', time:'07:00 PM'},
+        {date:'25 Jun',group:'D',home:'Turquia',away:'Estados Unidos', score1: '3', score2:'2', time:'10:00 PM'},
+        {date:'25 Jun',group:'D',home:'Paraguay',away:'Australia', score1: '0', score2:'0', time:'10:00 PM'},
+        {date:'26 Jun',group:'I',home:'Noruega',away:'Francia', score1: '1', score2:'4', time:'03:00 PM'},
+        {date:'26 Jun',group:'I',home:'Senegal',away:'Irak', score1: '5', score2:'0', time:'03:00 PM'},
+        {date:'26 Jun',group:'H',home:'Cabo Verde',away:'Arabia Saudita', score1: '0', score2:'0', time:'08:00 PM'},
+        {date:'26 Jun',group:'H',home:'Uruguay',away:'España', score1: '0', score2:'1', time:'08:00 PM'},
+        {date:'26 Jun',group:'G',home:'Nueva Zelanda',away:'Belgica', score1: '1', score2:'5', time:'11:00 PM'},
+        {date:'26 Jun',group:'G',home:'Egipto',away:'Iran', score1: '1', score2:'1', time:'11:00 PM'},
+        {date:'27 Jun',group:'L',home:'Panama',away:'Inglaterra', score1: '0', score2:'2', time:'05:00 PM'},
+        {date:'27 Jun',group:'K',home:'Colombia',away:'Portugal', score1: '0', score2:'0', time:'05:00 PM'},
+        {date:'27 Jun',group:'J',home:'Argelia',away:'Austria', score1: '3', score2:'3', time:'07:30 PM'},
+        {date:'27 Jun',group:'L',home:'Croacia',away:'Ghana', score1: '2', score2:'1', time:'07:30 PM'},
+        {date:'27 Jun',group:'K',home:'RD Congo',away:'Uzbekistan', score1: '3', score2:'1', time:'10:00 PM'},
+        {date:'27 Jun',group:'J',home:'Jordania',away:'Argentina', score1: '1', score2:'3', time:'10:00 PM'},
     ];
 
-    // 2. Función automática para calcular puntos (3 por ganar, 1 por empatar)
     function getPoints(teamName) {
         let pts = 0;
         matches.forEach(m => {
             if(m.home === teamName || m.away === teamName) {
                 const s1 = parseInt(m.score1);
                 const s2 = parseInt(m.score2);
-                if(!isNaN(s1) && !isNaN(s2)) { // Solo cuenta si hay marcadores
+                if(!isNaN(s1) && !isNaN(s2)) {
                     if(m.home === teamName) {
                         if(s1 > s2) pts += 3;
                         else if(s1 === s2) pts += 1;
@@ -177,21 +171,15 @@
         return pts;
     }
 
-    // 3. Renderizado de la tabla de Grupos ORDENADA por puntos
       const grid = document.getElementById('groups-grid');
       Object.entries(groups).forEach(([letter, teams]) => {
           const card = document.createElement('div');
           card.className = 'group-card rounded-xl p-3';
 
-          // Ordenar los equipos de mayor a menor según sus puntos
           const sortedTeams = [...teams].sort((a, b) => getPoints(b) - getPoints(a));
 
           let teamsHtml = sortedTeams.map((t,i) => {
-              // Verificamos si es el último equipo (índice 3)
               const isLast = (i === 3);
-
-              // Si es el último, le ponemos una franja roja (border-l-4) y un fondo rojizo suave.
-              // Si no lo es, le agregamos un padding izquierdo (pl-3) para que el texto siga alineado con el que tiene borde.
               const franjaRoja = isLast ? 'border-l-4 border-red-600 bg-red-600/10 pl-2' : 'pl-3';
 
               return `
@@ -208,7 +196,7 @@
           card.innerHTML = `<h3 class="font-bold text-center mb-2" style="color:#d4a017">Grupo ${letter}</h3>` + teamsHtml;
           grid.appendChild(card);
       });
-      // 4. Renderizado de Partidos
+
         const matchesList = document.getElementById('matches-list');
         let lastDate = '';
         matches.forEach(m => {
@@ -222,7 +210,6 @@
             const row = document.createElement('div');
             row.className = 'match-row flex items-center justify-between p-3 rounded-lg group-card text-sm';
 
-            // Obtenemos la hora o mostramos '--:--' si no se ha definido
             const gameTime = m.time ? m.time : '--:--';
 
             row.innerHTML = `<span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000; min-width: 45px; text-align: center;">Gr.${m.group}</span>
@@ -234,53 +221,51 @@
                 <span class="pl-2 ml-2 border-l border-white/20 text-xs font-medium text-white/70 min-w-[50px] text-center">${gameTime}</span>`;
             matchesList.appendChild(row);
         });
-    // 5. Renderizado de Llaves Eliminatorias
+
+    // Añade las propiedades "pen1" y "pen2" para los partidos que requieran penales
     const bracketData = [
         {
             round: 'Dieciseisavos De Final',
             matches: [
-                // Ejemplo de un partido que ya se jugó
-                { date:'28 JUN', home: '2A', away: '2B', score1: '-', score2: '-', time: '03:00 PM'},
-                // Ejemplos de partidos por jugarse (tienen un guion "-")
-                { date:'29 JUN', home: '1E', away: '3 A-B-C-D-F', score1: '-', score2: '-', time: '01:00 PM'},
-                { date:'29 JUN', home: '1F', away: '2C', score1: '-', score2: '-', time: '04:30 PM' },
-                { date:'29 JUN', home: '1C', away: '2F', score1: '-', score2: '-', time: '09:00 PM'},
-                { date:'30 JUN', home: '1i', away: '3 C-D-F-G-H', score1: '-', score2: '-', time: '01:00PM' },
-                { date:'30 JUN', home: '2E', away: '2i', score1: '-', score2: '-', time:'05:00 PM' },
-                { date:'30 JUN', home: '1A', away: '3 C-E-F-H-i', score1: '-', score2: '-', time:'09:00 PM' },
-                { date:'01 JUL', home: '1L', away: '3 E-H-i-J-K', score1: '-', score2: '-', time:'12:00 PM' },
-                { date:'01 JUL', home: '1D', away: '3 B-E-F-i-J', score1: '-', score2: '-', time:'04:00 PM' },
-                { date:'01 JUL', home: '1G', away: '3 A-E-H-i-J', score1: '-', score2: '-', time:'08:00 PM' },
-                { date:'02 JUL', home: '2K', away: '2L', score1: '-', score2: '-', time: '03:00 PM' },
-                { date:'02 JUL', home: '1H', away: '2J', score1: '-', score2: '-', time: '07:00 PM' },
-                { date:'02 JUL', home: '1B', away: '3 E-F-G-i-J', score1: '-', score2: '-', time: '11:00 PM' },
-                { date:'03 JUL', home: '1J', away: '2H', score1: '-', score2: '-', time: '02:00 PM' },
-                { date:'03 JUL', home: '1K', away: '3 D-E-i-J-L', score1: '-', score2: '-', time: '06:00 PM' },
-                { date:'03 JUL', home: '2D', away: '2G', score1: '-', score2: '-', time: '09:30 PM' },
-                // ... puedes agregar el resto de los 16avos aquí siguiendo el mismo formato
+                // Ejemplo con penales agregados:
+                { date:'28 JUN', home: 'Sudafrica', away: 'Canada', score1: '0', score2: '1', time: '03:00 PM'},
+                { date:'29 JUN', home: 'Brasil', away: 'Japon', score1: '2', score2: '1', time: '01:00 PM'},
+                { date:'29 JUN', home: 'Alemania', away: 'Paraguay', score1: '1', score2: '1', pen1: '3', pen2: '4', time: '04:30 PM' },
+                { date:'29 JUN', home: 'Paises Bajos', away: 'Marruecos', score1: '1', score2: '1',pen1: '2', pen2: '3', time: '09:00 PM'},
+                { date:'30 JUN', home: 'Costa De Marfil', away: 'Noruega', score1: '1', score2: '2', time: '01:00PM' },
+                { date:'30 JUN', home: 'Francia', away: 'Suecia', score1: '3', score2: '0', time:'05:00 PM' },
+                { date:'30 JUN', home: 'Mexico', away: 'Ecuador', score1: '2', score2: '0', time:'09:00 PM' },
+                { date:'01 JUL', home: 'Inglaterra', away: 'RD Congo', score1: '2', score2: '1', time:'12:00 PM' },
+                { date:'01 JUL', home: 'Belgica', away: 'Senegal', score1: '3', score2: '2', time:'04:00 PM' },
+                { date:'01 JUL', home: 'Estados Unidos', away: 'Bosnia', score1: '2', score2: '0', time:'08:00 PM' },
+                { date:'02 JUL', home: 'España', away: 'Austria', score1: '3', score2: '0', time: '03:00 PM' },
+                { date:'02 JUL', home: 'Portugal', away: 'Croacia', score1: '2', score2: '1', time: '07:00 PM' },
+                { date:'02 JUL', home: 'Suiza', away: 'Argelia', score1: '2', score2: '0', time: '11:00 PM' },
+                { date:'03 JUL', home: 'Australia', away: 'Egypto', score1: '1', score2: '1', pen1: '2', pen2: '4', time: '02:00 PM' },
+                { date:'03 JUL', home: 'Argentina', away: 'Cabo Verde', score1: '3', score2: '2', time: '06:00 PM' },
+                { date:'03 JUL', home: 'Colombia', away: 'Ghana', score1: '1', score2: '0', time: '09:30 PM' }
             ]
         },
         {
             round: 'Octavos de Final',
             matches: [
-                { date:'04 JUL', home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-', time: '01:00 PM' },
-                { date:'04 JUL', home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-', time: '05:00 PM' },
-                { date:'05 JUL', home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-', time: '04:00 PM' },
-                { date:'05 JUL', home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-', time: '08:00 PM' },
-                { date:'06 JUL', home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-', time: '03:00 PM' },
-                { date:'06 JUL', home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-', time: '08:00 PM' },
-                { date:'07 JUL', home: 'Ganador Llave 1', away: 'Ganador Llave 2', score1: '-', score2: '-', time: '12:00 PM'},
-                { date:'07 JUL', home: 'Ganador Llave 3', away: 'Ganador Llave 4', score1: '-', score2: '-', time: '04:00 PM' },
-                // ...
+                { date:'04 JUL', home: 'Canada', away: 'Marruecos', score1: '0', score2: '3', time: '01:00 PM' },
+                { date:'04 JUL', home: 'Paraguay', away: 'Francia', score1: '0', score2: '1', time: '05:00 PM' },
+                { date:'05 JUL', home: 'Brasil', away: 'Noruega', score1: '1', score2: '2', time: '04:00 PM' },
+                { date:'05 JUL', home: 'Mexico', away: 'Inglaterra', score1: '2', score2: '3', time: '08:00 PM' },
+                { date:'06 JUL', home: 'Portugal', away: 'España', score1: '-', score2: '-', time: '03:00 PM' },
+                { date:'06 JUL', home: 'Estados Unidos', away: 'Belgica', score1: '-', score2: '-', time: '08:00 PM' },
+                { date:'07 JUL', home: 'Argentina', away: 'Egypto', score1: '-', score2: '-', time: '12:00 PM'},
+                { date:'07 JUL', home: 'Suiza', away: 'Colombia', score1: '-', score2: '-', time: '04:00 PM' }
             ]
         },
         {
             round: 'Cuartos de Final',
             matches: [
-                { date:'09 JUL', home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-', time: '04:00 PM' },
+                { date:'09 JUL', home: 'Francia', away: 'Marrruecos', score1: '-', score2: '-', time: '04:00 PM' },
                 { date:'10 JUL', home: 'G.Oct 3', away: 'G.Oct 4', score1: '-', score2: '-', time: '03:00 PM' },
-                { date:'11 JUL', home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-', time: '05:00 PM' },
-                { date:'11 JUL', home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-', time: '09:00 PM' },
+                { date:'11 JUL', home: 'Noruega', away: 'Inglaterra', score1: '-', score2: '-', time: '05:00 PM' },
+                { date:'11 JUL', home: 'G.Oct 1', away: 'G.Oct 2', score1: '-', score2: '-', time: '09:00 PM' }
             ]
         },
         {
@@ -293,7 +278,7 @@
         {
             round: '3er y 4to PUESTO',
             matches: [
-                { date:'18 JUL', home: 'G.Cuartos 1', away: 'G.Cuartos 2', score1: '-', score2: '-', time: '05:00 PM' },
+                { date:'18 JUL', home: 'G.Cuartos 1', away: 'G.Cuartos 2', score1: '-', score2: '-', time: '05:00 PM' }
             ]
         },
         {
@@ -304,26 +289,35 @@
         }
     ];
 
-    // 5. Renderizado de Llaves Eliminatorias
-      // ... (tu bracketData va aquí)
-
-      // 5. Renderizado de Llaves Eliminatorias
     const bracket = document.getElementById('bracket');
     const bHtml = bracketData.map(r => `
         <div class="mb-8">
             <h3 class="font-bold text-center mb-4 text-lg uppercase tracking-wider" style="color:#d4a017">${r.round}</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 ${r.matches.map(m => {
-                    // Validamos si existen los datos, de lo contrario ponemos un guion por defecto
                     const fechaJuego = m.date ? m.date : '-- ---';
                     const horaJuego = m.time ? m.time : '--:--';
+
+                    // Verificamos si existen los datos de los penales
+                    const p1 = m.pen1 ? `<span class="text-[11px] text-white/60 mr-1 font-bold">(${m.pen1})</span>` : '';
+                    const p2 = m.pen2 ? `<span class="text-[11px] text-white/60 ml-1 font-bold">(${m.pen2})</span>` : '';
 
                     return `
                         <div class="match-row flex items-center justify-between p-3 rounded-lg group-card text-sm">
                             <span class="flex-1 text-right pr-2">${m.home}</span>
-                            <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score1}</span>
+
+                            <div class="flex items-center">
+                                ${p1}
+                                <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score1}</span>
+                            </div>
+
                             <span class="font-bold px-2 text-white/50">vs</span>
-                            <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score2}</span>
+
+                            <div class="flex items-center">
+                                <span class="px-2 py-0.5 rounded text-xs font-bold" style="background:#d4a017;color:#000">${m.score2}</span>
+                                ${p2}
+                            </div>
+
                             <span class="flex-1 pl-2">${m.away}</span>
 
                             <span class="pl-2 ml-2 border-l border-white/20 text-xs font-medium text-white/70 text-center min-w-[95px] whitespace-nowrap">
@@ -336,5 +330,5 @@
         </div>
     `).join('');
     bracket.innerHTML = bHtml;
-  </script> <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e44ed9d15c4736',t:'MTc4MTg5MDcxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  </script>
 </body></html>
